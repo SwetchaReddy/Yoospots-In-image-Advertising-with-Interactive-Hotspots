@@ -1,9 +1,9 @@
 var express = require('express')
 var logoRouter = express.Router()
-
+var clarifaiApp=require('./APIs/clarifia')
 var MongoClient = require('mongodb').MongoClient;
 var connectionString='mongodb://Shalin:12345@ds161049.mlab.com:61049/asetutorial10';   
-
+var vision=require('./APIs/googleVision');
 
 logoRouter.use(function timeLog (req, res, next) {
     console.log('Time: ', Date.now())

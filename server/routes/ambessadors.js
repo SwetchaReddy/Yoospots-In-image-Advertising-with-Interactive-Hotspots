@@ -3,7 +3,7 @@ var ambassadorRouter = express.Router()
 var clarifaiApp=require('./APIs/clarifia')
 var MongoClient = require('mongodb').MongoClient;
 var connectionString='mongodb://Shalin:12345@ds161049.mlab.com:61049/asetutorial10';   
-
+var vision=require('./APIs/googleVision');
 
 ambassadorRouter.use(function timeLog (req, res, next) {
     console.log('Time: ', Date.now())
@@ -58,8 +58,8 @@ ambassadorRouter.use(function timeLog (req, res, next) {
     })
   
     ambassadorRouter.get('/predictModel', function (req, res) {
-      clarifaiApp.Predict();  
-      res.send('Model Predicted')
+        
+      res.send(clarifaiApp.Predict())
       })  
     
   ambassadorRouter.get('/updatePerson', function (req, res) {

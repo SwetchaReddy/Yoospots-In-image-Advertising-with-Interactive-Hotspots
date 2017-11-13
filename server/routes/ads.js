@@ -13,69 +13,50 @@ adsRouter.use(function timeLog (req, res, next) {
   var ads=[];
   // define the home page route
   adsRouter.get('/', function (req, res) {
-    res.send('Users Home Page')
+    
   
-    getAllUsers(function(usersData){
-      users= usersData;
+    getAllAds(function(data){
+     res.send(data)
     });
-    console.log(users);
+   
   })
   
   
   // define the about route
-  adsRouter.get('/GetUserId',function (req, res) {
-    res.send('id='+ req.params.id);
-   console.log(users.find((user)=>user._id==req.params.id));
+  adsRouter.get('/GetAdId',function (req, res) {
+    res.send(ads.find((ad)=>ad._id==req.params.id));
   })
   
-  adsRouter.get('/insertUser', function (req, res) {
-    user={
-          _id:2,
-          name:'Sami',
-          pass:'1234',
-          email:'kevin@fan360.com',
-          phNo:'8163288464',
-          loggedIn:0,
-          sessionId:'1'
-        }
-    AddUser(user,function(data){res.send(data)});
+  adsRouter.post('/insertAd',Ad, function (req, res) {
+    AddAd(Ad,function(data){res.send(data)});
   })
   
-  adsRouter.get('/updateUser', function (req, res) {
-    user={
-          _id:2,
-          name:'Sami',
-          pass:'12345',
-          email:'newEmail@fan360.com',
-          phNo:'8163288464',
-          loggedIn:1,
-          sessionId:'1'
-        }
-    updateUser(user,function(data){res.send(data)});
+  adsRouter.post('/updateAd',Ad, function (req, res) {
+    updateUser(Ad,function(data){res.send(data)});
   })
   
-  adsRouter.get('/deleteUser', function (req, res) {
-    deleteUser(2,function(data){res.send(data)});
+  adsRouter.post('/deleteAd',adID, function (req, res) {
+    deleteUser(adId,function(data){res.send(data)});
   })
   
-  var getAllUsers=function (callback){
+  var getAllAds=function (callback){
    MongoClient
    .connect(connectionString)
    .then(function(db) {
-   db.collection("Users").find({}).toArray().then(function(data){
+   db.collection("Ads").find({}).toArray().then(function(data){
        callback(data)
      })
     })
         
   }
   
-  var AddUser=function(user,callback){
+  var AddAd=function(user,callback){
     MongoClient
     .connect(connectionString)
     .then(function(db) {
-    db.collection("Users").insert(user).then(function(suc,err){
+    db.collection("Ads").insert(user).then(function(suc,err){
       if (err) {
-        console.log('error while inserting user');
+        console.log('error while inserting Ad');
         callback(err)
       }
       else{
@@ -86,25 +67,118 @@ adsRouter.use(function timeLog (req, res, next) {
      })
   }
   
-  var updateUser=function(user,callback){
+  var updateAd=function(ad,callback){
     MongoClient
     .connect(connectionString)
     .then(function(db) {
-    db.collection("Users").update({_id:user._id},user,{upsert: true}).then(function(data){
+    db.collection("Ads").update({_id:ad._id},ad,{upsert: true}).then(function(data){
         callback(data)
       })
      })
          
   }
   
-  var deleteUser=function(userId,callback){
+  var deleteAd=function(adId,callback){
     MongoClient
     .connect(connectionString)
     .then(function(db) {
-    db.collection("Users").remove({_id:userId}).then(function(data){
+    db.collection("Ads").remove({_id:adId}).then(function(data){
         callback(data)
       })
      })
   }
   
+  var deleteAd=function(adId,callback){
+    MongoClient
+    .connect(connectionString)
+    .then(function(db) {
+    db.collection("Ads").remove({_id:adId}).then(function(data){
+        callback(data)
+      })
+     })
+  }
+
+
+  adsRouter.get('/getFrequecy',Ads, function (req, res) {
+   res.send( QueueAds("f",Ads))
+  })
+
+
+  adsRouter.get('/getAvarageTime',Ads, function (req, res) {
+   res.send( QueueAds("t",Ads))
+  })
+
+
+  var QueueAdsByRegion=function(Ads,region){
+    let newAds= Ads.filter(ad=> ad.country==region)
+      return newAds
+    }  
+    
+    var QueueAdsByFrequency=function(Ads){
+      let newAds= Ads.sort((a,b)=> {
+        if (a.click>b.click)
+          return 1;
+        if(a.click<b.click)
+          return -1;
+        return 0; 
+      })
+      return newAds
+    }  
+    
+    var QueueAdsByPriority=function(Ads){
+      let newAds= Ads.sort((a,b)=> {
+        if (a.priority>b.priority)
+          return 1;
+        if(a.priority<b.priority)
+          return -1;
+        return 0 
+      })
+      return newAds
+    } 
+    
+    var QueueAdsByLessTimeSpent=function(Ads){
+      let newAds= Ads.sort((a,b)=> {
+        if (a.avarageTimeSpent<b.avarageTimeSpent)
+          return 1;
+        if(a.avarageTimeSpent>b.avarageTimeSpent)
+          return -1;
+        return 0 
+      })
+      return newAds
+    } 
+    
+    var QueueAdsByMoreTimeSpent=function(Ads){
+      let newAds= Ads.sort((a,b)=> {
+        if (a.avarageTimeSpent>b.avarageTimeSpent)
+          return 1;
+        if(a.avarageTimeSpent<b.avarageTimeSpent)
+          return -1;
+        return 0 
+      })
+      return newAds
+    }
+    
+    var GenerateGraph=function(logoId,Ads){
+      let  newAds=Ads.filter(ad=>ad.logoId==2)
+      var yAxis=[];
+      newAds.forEach(ad=>yAxis.push(ad.click));
+    }
+    
+    var QueueAds=function(type,Ads){
+          switch(type){
+            case "r":QueueAdsByRegion(Ads);
+            break;
+            case "f":QueueAdsByFrequency(Ads);
+            break;
+            case "p":QueueAdsByPriority(Ads);
+            break;
+            case "lt":QueueAdsByLessTimeSpent(Ads);
+            break;
+            case "mt":QueueAdsByMoreTimeSpent(Ads);
+            break;
+            default :QueueAdsByFrequency(Ads);
+            break;
+          }
+      }
+    
   module.exports = adsRouter;

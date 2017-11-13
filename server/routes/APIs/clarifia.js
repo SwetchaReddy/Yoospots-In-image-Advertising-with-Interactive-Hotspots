@@ -1,6 +1,6 @@
  // instantiate a new Clarifai app passing in your api key.
  const app = new Clarifai.App({
-  apiKey: 'ef856838bcb143d7b97080c545eeba36'
+  apiKey: "Your_Key"
  });
 
 

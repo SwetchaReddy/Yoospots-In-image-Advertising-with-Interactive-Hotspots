@@ -7,8 +7,6 @@ const vision = new Vision({
     keyFilename: 'key.json'
   });
 
-// The name of the image file to annotate
-const fileName = '.\\images\\walmart.jpg'
 
 // Prepare the request object
 const request = {
@@ -93,3 +91,5 @@ vision.labelDetection(request)
   .catch((err) => {
     console.error('ERROR:', err);
   });
+
+module.exports=vision

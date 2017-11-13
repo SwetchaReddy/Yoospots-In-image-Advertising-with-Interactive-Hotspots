@@ -15,9 +15,4 @@ expApp.use('/ambessadors',ambessadors);
 expApp.use('/logos',logos);
 expApp.use('/ads',ads);
 
-
-
- 
-
-
-expApp.listen(3000, () => console.log('Example expApp listening on port 3000!'))
+expApp.listen(8081, () => console.log('Example expApp listening on port 8081!'))
