@@ -1,0 +1,33 @@
+<!--
+  Generated template for the BrandsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header >
+
+  <ion-navbar>
+    <ion-title>Brands</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="card-background" >
+  <ion-card>
+  <ion-item>
+      <ion-input type="search" [(ngModel)]="searchInput"  placeholder="Enter Filter" (input)='onInputChange($event.target.value)'></ion-input>
+      <button class="filter-size" item-end ion-button icon-only (click)="filterData(searchInput)" ><ion-icon name="funnel"></ion-icon></button>
+      <button class="filter-size" item-end ion-button icon-only (click)="addBrand(abc)" ><ion-icon name="md-add-circle"></ion-icon></button>
+  </ion-item>
+</ion-card>
+
+  <ion-list>
+    <button ion-item *ngFor="let brand of brands" (click)="viewBrandDetails(brand.id)" >
+        <ion-thumbnail item-start>
+            <img src={{brand.imgURL}} height="35" width="40">
+        </ion-thumbnail>
+        <h2>{{brand.name}}</h2>  
+    </button>
+  </ion-list>
+</ion-content>

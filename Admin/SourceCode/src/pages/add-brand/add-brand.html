@@ -1,0 +1,71 @@
+<!--
+  Generated template for the AddBrandPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add a New Brand</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="card-background">
+  <ion-card>
+      <ion-item color="black">
+             <ion-label item-start [ngStyle]="{'color': 'Black', 'font-size': '20px', 'font-weight': 'bold'}"> <b>Name : </b></ion-label> 
+              <ion-input item-end type="search" [(ngModel)]="selectedName"  placeholder="Enter Brand Name"></ion-input>
+      </ion-item>
+  <ion-item>
+            <ion-label item-start [ngStyle]="{'color': 'Black', 'font-size': '20px', 'font-weight': 'bold'}"> <b>Logo : </b></ion-label> 
+          <ion-thumbnail >
+            <img src={{selectedImage}} height="20" width="5">
+         </ion-thumbnail>
+         <ion-input item-end type="search"   placeholder="Enter URL"></ion-input>
+      <button class="filter-size" item-end ion-button icon-only (click)="addBrandLogo(abc)" ><ion-icon name="md-add-circle"></ion-icon></button>
+     </ion-item>
+ 
+     <ion-item>
+         <ion-label item-start [ngStyle]="{'color': 'Black', 'font-size': '20px', 'font-weight': 'bold'}"> <b>Address:  </b></ion-label> 
+          <ion-input item-end type="search" [(ngModel)]="selectedAddress"  placeholder="Enter Address"></ion-input>
+      </ion-item>
+        <ion-item>
+        <ion-label [ngStyle]="{'color': 'Black', 'font-size': '20px', 'font-weight': 'bold'}" ><b>Description : </b></ion-label>
+        <ion-textarea [(ngModel)]="selectedDesc" placeholder="Enter Description"></ion-textarea>
+      </ion-item>
+  
+  </ion-card>
+
+
+<ion-card>
+ <ion-item>
+         <ion-label item-start [ngStyle]="{'color': 'Black', 'font-size': '20px', 'font-weight': 'bold'}"> <b>Ambassador Name : </b></ion-label> 
+          <ion-input item-end type="search" [(ngModel)]="selectedAmbName"  placeholder="Enter Name"></ion-input>
+  </ion-item>  
+  <ion-item>
+      <ion-label item-start [ngStyle]="{'color': 'Black', 'font-size': '20px', 'font-weight': 'bold'}"> <b> Description : </b></ion-label> 
+       <ion-input item-end type="search" [(ngModel)]="selectedAmbDesc"  placeholder="Enter Description"></ion-input>
+</ion-item>  
+<ion-item>
+    <ion-label item-start [ngStyle]="{'color': 'Black', 'font-size': '20px', 'font-weight': 'bold'}"> <b> Occupation : </b></ion-label> 
+     <ion-input item-end type="search" [(ngModel)]="selectedAmbOccu"  placeholder="Enter Occupatiom"></ion-input>
+</ion-item>  
+</ion-card>
+  <ion-card>
+      <ion-item>
+          <ion-label item-start [ngStyle]="{'color': 'Black', 'font-size': '20px', 'font-weight': 'bold'}"> <b>Advertisements: </b></ion-label> 
+        <ion-thumbnail >
+          <img src={{selectedImage}} height="20" width="5">
+       </ion-thumbnail>
+    <button class="filter-size" item-end ion-button icon-only (click)="addBrandLogo(abc)" ><ion-icon name="md-add-circle"></ion-icon></button>
+   </ion-item>
+  </ion-card>
+
+  <ion-card>
+      <button ion-button block light item-height="80px" (click)="addBrand(abc)" [ngStyle]="{'color': 'white', 'font-size': '20px', 'font-weight': 'bold'}" > Train Model</button>
+    </ion-card>
+
+</ion-content>

@@ -1,0 +1,76 @@
+<!--
+  Generated template for the AdsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add a New Advertisement.</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="card-background">
+
+  
+
+    <ion-item>
+        <ion-label [ngStyle]="{'color': 'black', 'font-size': '18px', 'font-weight': 'bold'}">Logo : </ion-label>
+        <ion-select [(ngModel)]="selectLogo">
+        <ion-option *ngFor="let ad of ads">{{ad.name}}</ion-option>
+          <!-- <ion-option value="f">Female</ion-option>
+          <ion-option value="m">Male</ion-option> -->
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+          <ion-label item-start [ngStyle]="{'color': 'black', 'font-size': '18px', 'font-weight': 'bold'}"> <b>Upload : </b></ion-label> 
+        <ion-thumbnail >
+          <img src={{selectedImage}} height="20" width="5">
+       </ion-thumbnail>
+       <ion-input item-end type="search"   placeholder="Enter URL"></ion-input>
+    <button class="filter-size" item-end ion-button icon-only (click)="addAds(abc)" ><ion-icon name="md-add-circle"></ion-icon></button>
+   </ion-item>
+
+   <ion-item>
+      <ion-label [ngStyle]="{'color': 'black', 'font-size': '18px', 'font-weight': 'bold'}">Select Country :</ion-label>
+      <ion-select [(ngModel)]="selectCountry">
+          <ion-option value="usa"> USA </ion-option>
+          <ion-option value="india"> India </ion-option>
+      </ion-select>
+   </ion-item>
+   <ion-item>
+      <ion-label [ngStyle]="{'color': 'black', 'font-size': '18px', 'font-weight': 'bold'}">Select Type : </ion-label>
+      <ion-select [(ngModel)]="selectTpye">
+          <ion-option value="img">Image</ion-option>
+          <ion-option value="video">Video</ion-option>
+          <ion-option value="text">Text</ion-option>
+          <ion-option value="web">Web URL</ion-option>
+          </ion-select>
+   </ion-item>
+
+   <ion-item>
+      <ion-label [ngStyle]="{'color': 'black', 'font-size': '18px', 'font-weight': 'bold'}">Select Priority : </ion-label>
+      <ion-select [(ngModel)]="selectPriority">
+          <ion-option value="1">1</ion-option>
+          <ion-option value="2">2</ion-option>
+          <ion-option value="3">3</ion-option>
+          <ion-option value="4">4</ion-option>
+          <ion-option value="5">5</ion-option>
+          <ion-option value="6">6</ion-option>
+          <ion-option value="7">7</ion-option>
+          <ion-option value="8">8</ion-option>
+          <ion-option value="9">9</ion-option>
+          <ion-option value="10">10</ion-option>
+          </ion-select>
+   
+     
+  </ion-item>
+
+  <ion-card>
+      <button ion-button block light item-height="80px" (click)="trainAds(abc)" [ngStyle]="{'color': 'white', 'font-size': '20px', 'font-weight': 'bold'}"> Train Model</button>
+    </ion-card>
+  </ion-content>

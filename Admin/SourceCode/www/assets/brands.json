@@ -1,0 +1,59 @@
+{
+    "appData": [
+        {
+            "id": 1,
+            "name": "ADIDAS",
+            "imgURL": "assets/logoImgs/logo1.png",
+            "description": "This is and adidas anything.",
+            "address": "Address of Adidas",
+            "ambassador": "Lionnel Messi",
+            "amb_desc": "This is Messi",
+            "amb_occup": "Football Player",
+            "amb_imgURL": "assets/AmbassadorImgs/personImg1.jpg"
+        },
+        {
+            "id": 2,
+            "name": "NIKE",
+            "imgURL": "assets/logoImgs/logo2.png",
+            "description": "Nike, Inc. is an American multinational corporation that is engaged in the design, development, manufacturing, and worldwide marketing and sales of footwear, apparel, equipment, accessories, and services. The company is headquartered near Beaverton, Oregon, in the Portland metropolitan area. It is the world's largest supplier of athletic shoes and apparel and a major manufacturer of sports equipment, with revenue in excess of US$24.1 billion in its fiscal year 2012 (ending May 31, 2012). As of 2012, it employed more than 44,000 people worldwide. In 2014 the brand alone was valued at $19 billion, making it the most valuable brand among sports businesses.[6] As of 2017, the Nike brand is valued at $29.6 billion",
+            "address": "Washington County, Oregon, United States",
+            "ambassador": "Roger Federer",
+            "amb_desc": "Roger Federer (German pronunciation:  born 8 August 1981) is a Swiss professional tennis player who is currently ranked world No. 2 in men's singles tennis by the Association of Tennis Professionals (ATP).[3][4] Federer has won 19 Grand Slam singles titles, the most in history for a male tennis player and has held the world No. 1 spot in the ATP rankings for a record total of 302 weeks, including a record 237 consecutive weeks.",
+            "amb_occup": "Tennis Player",            
+            "amb_imgURL": "assets/AmbassadorImgs/personImg2.jpg"
+        },
+        {
+            "id": 3,
+            "name": "BMW",
+            "imgURL": "assets/logoImgs/logo3.png",
+            "description": "This is and BMW anything.",
+            "address": "Address of BMW",
+            "ambassador": "Sachin Tendulkar",
+            "amb_desc": "This is Tendulkar",
+            "amb_occup": "Cricket Player",
+            "amb_imgURL": "assets/AmbassadorImgs/personImg3.jpg"
+        },
+        {
+            "id": 4,
+            "name": "PUMA",
+            "imgURL": "assets/logoImgs/logo5.png",
+            "description": "This is and puma anything.",
+            "address": "Address of Puma",
+            "ambassador": "Virat Kohli",
+            "amb_desc": "This is Virat",
+            "amb_occup": "Cricket Player",
+            "amb_imgURL": "assets/AmbassadorImgs/personImg5.jpg"        
+        },
+        {
+            "id": 5,
+            "name": "TAGHEUER",
+            "imgURL": "assets/logoImgs/logo4.png",
+            "description": "This is and tagheuer anything.",
+            "address": "Address of Tagheuer",
+            "ambassador": "Tiger Woods",
+            "amb_desc": "This is Tiger",
+            "amb_occup": "Golf Player",
+            "amb_imgURL": "assets/AmbassadorImgs/personImg4.jpg"        
+        }
+    ]
+}

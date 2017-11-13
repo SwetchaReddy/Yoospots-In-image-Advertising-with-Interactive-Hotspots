@@ -1,0 +1,35 @@
+<!--
+  Generated template for the AmbassadorDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header  >
+
+  <ion-navbar>
+    <ion-title>AmbassadorDetails</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="card-background">
+    <ion-card>
+        <ion-card-header id="card-header" ><b>{{ambassadorInfo.ambassador}}</b></ion-card-header>
+    </ion-card>
+    <ion-card [ngStyle]="{'height': '180px'}">
+        
+          <ion-thumbnail item-start>
+            <img src={{ambassadorInfo.amb_imgURL}} height="180px" width="30">
+          </ion-thumbnail>
+      
+      </ion-card>
+      <ion-card>
+          <div></div>
+          <ion-item>
+            <div><b>Occupation: </b>{{ambassadorInfo.amb_occup}}</div>
+            <div><b>Description: </b>{{ambassadorInfo.amb_desc}}</div>
+          </ion-item>
+        
+      </ion-card>
+</ion-content>
